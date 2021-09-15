@@ -1,0 +1,66 @@
+<html>
+	<head>
+		<title>Tabelle bauen</title>
+			
+		<meta charset="utf-8">
+		</head>
+		<script>
+			"use strict";
+			function programm() {
+			// Quellcode
+
+			var vStart;
+			var vAusgabe;
+			var vEnde;	
+			var vQuersumme;
+			var vQuadrat;
+			var vTeiler;
+
+			
+			vStart =parseFloat(document.getElementById("idStart").value);
+			vEnde =document.getElementById("idEnde").value;
+			vTeiler=document.getElementById("idTeiler").value;
+			
+			
+			
+			vAusgabe = "";
+			vAusgabe = vAusgabe + "<table border=1>";
+			vAusgabe = vAusgabe + "<tr><th>Zahl</th><th>Quadrat</th><th>Quersumme</th></tr>";
+
+			while (vStart<=vEnde) {
+				
+				vQuadrat = vStart * vStart;
+				vQuersumme=vStart + vQuadrat;		
+				
+				if(vQuersumme%vTeiler==0){
+				
+				vAusgabe = vAusgabe + "<tr><td>" + vStart + "</td><td>" + vQuadrat + "</td><td style=Background-color:green>" + vQuersumme + "</td></tr>";
+
+				}
+				
+				else {
+				vAusgabe = vAusgabe + "<tr><td>" + vStart + "</td><td>" + vQuadrat + "</td><td>" + vQuersumme + "</td></tr>";
+}
+			vStart++;;
+}
+			vAusgabe = vAusgabe + "</table>";
+
+			document.getElementById("idAusgabe").innerHTML= vAusgabe;
+		}
+
+		</script>
+
+
+	<body>
+		
+		<h1>Mathematische Funktion (Wertetabelle) </h1>
+		
+		 Start <input id="idStart" type="text" value="5"></br>
+		
+       Ende <input id="idEnde" type="text" value="20">
+	   Zahl teilbar durch Quersumme: <input id="idTeiler" type="text" value="">
+		
+		<button onClick="programm();">Wertetabelle erzeugen!</button><br/><br/>
+        <div id="idAusgabe">Button klicken!</div>
+	</body>
+</html>
